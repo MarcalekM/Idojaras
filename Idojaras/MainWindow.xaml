@@ -5,13 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Idojaras"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="780">
     <Grid>
-        <ListBox x:Name="ltbVarosok" Margin="10,207,390,10"/>
-        <TextBox Text="" HorizontalAlignment="Left" Margin="160,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="24" FontFamily="Times New Roman" FontSize="20"/>
-        <Button Content="Hozzáad" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Height="30" Width="60"/>
-        <Button Content="Töröl" HorizontalAlignment="Left" Margin="75,167,0,0" VerticalAlignment="Top" Height="30" Width="60"/>
-        <TextBox x:Name="Adatok" HorizontalAlignment="Left" Margin="590,207,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="200"/>
+        <Button Content="Hozzáad" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="Hozzaad"/>
+        <Button Content="Töröl" HorizontalAlignment="Left" Margin="75,157,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="Button_Click_1"/>
+        <TextBox x:Name="Adatok" HorizontalAlignment="Left" Margin="550,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="100"/>
+        <ListBox x:Name="Varosok" Margin="10,192,30,10" SelectionChanged="Varosok_SelectionChanged" Width="740"/>
+        <TextBox x:Name="Telepules" HorizontalAlignment="Left" Margin="147,157,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="30" FontSize="18"/>
+
+        <Label x:Name="HL" Content="Hőmérséklet:" Height="30" Width="100" Margin="10,27,670,0" VerticalAlignment="Top"/>
+        <Label x:Name="PL" Content="Páratartalom:" Height="30" Width="100" Margin="235,25,445,0" VerticalAlignment="Top"/>
+        <Label x:Name="SZL" Content="Szélesség:" Height="30" Width="100" Margin="465,27,215,0" VerticalAlignment="Top"/>
+        <Button x:Name="Done" Content="Kész" HorizontalAlignment="Left" Margin="690,25,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="Button_Click"/>
+        <TextBox x:Name="telepules" HorizontalAlignment="Center" Margin="0,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="H" HorizontalAlignment="Left" Margin="105,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="P" HorizontalAlignment="Center" Margin="0,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="SZ" HorizontalAlignment="Left" Margin="560,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
 
     </Grid>
 </Window>
+    
