@@ -45,7 +45,7 @@ namespace Idojaras
                 {
                     if (v._nev == varos.Content.ToString())
                     {
-                        Adatok.Text = $"Páratartalom: {v._paratartalom.ToString()} g/m3 \n Hőméréklet: {v._homerseklet.ToString()} °C\n Szélsebesség: {v._szelsebesseg.ToString()} km/h";
+                        Adatok.Text = $"Páratartalom: {v._homerseklet.ToString()} g/m3 \n Hőméréklet: {v._paratartalom.ToString()} °C\n Szélsebesség: {v._szelsebesseg.ToString()} km/h";
                         kellAdat = false;
                     }
                 }
