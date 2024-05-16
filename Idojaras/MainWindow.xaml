@@ -11,7 +11,7 @@
         <Button Content="Töröl" HorizontalAlignment="Left" Margin="75,157,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="Button_Click_1"/>
         <TextBox x:Name="Adatok" HorizontalAlignment="Left" Margin="550,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="100"/>
         <ListBox x:Name="Varosok" Margin="10,192,30,10" SelectionChanged="Varosok_SelectionChanged" Width="740"/>
-        <TextBox x:Name="Telepules" HorizontalAlignment="Left" Margin="147,157,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="30" FontSize="18"/>
+        <TextBox x:Name="Telepules" HorizontalAlignment="Left" Margin="140,157,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="30" FontSize="18"/>
 
         <Label x:Name="HL" Content="Hőmérséklet:" Height="30" Width="100" Margin="10,27,670,0" VerticalAlignment="Top"/>
         <Label x:Name="PL" Content="Páratartalom:" Height="30" Width="100" Margin="235,25,445,0" VerticalAlignment="Top"/>
@@ -21,6 +21,7 @@
         <TextBox x:Name="H" HorizontalAlignment="Left" Margin="105,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="P" HorizontalAlignment="Center" Margin="0,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="SZ" HorizontalAlignment="Left" Margin="560,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Kilépés" HorizontalAlignment="Left" Margin="10,87,30,250" Height="30" Width="60" Click="Exit"/>
 
 
     </Grid>

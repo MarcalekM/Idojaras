@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -29,9 +31,10 @@ namespace Idojaras
             SZL.Visibility = Visibility.Hidden;
             telepules.Visibility = Visibility.Hidden;
             Done.Visibility = Visibility.Hidden;
-            varosok.Add(new("Miskolc", 15, 45, 39));
-            varosok.Add(new("Budapest", 20, 42, 32));
-            varosok.Add(new("Székesfehérvár", 12, 36, 37));
+            using StreamReader sr = new(
+                path: @"..\..\..\src\cities.txt",
+                encoding: System.Text.Encoding.UTF8);
+            while (!sr.EndOfStream) varosok.Add(new(sr.ReadLine()));
             Feltolt(varosok);
         }   
 
@@ -68,7 +71,9 @@ namespace Idojaras
         {
             ListBoxItem item = new();
             item.Content = Telepules.Text;
-            Varosok.Items.Add(item);
+            bool ad = true;
+            foreach (var v in varosok) if (v._nev == item.Content.ToString()) ad = false;
+            if (ad) Varosok.Items.Add(item);
             Telepules.Text = string.Empty;
         }
 
@@ -111,6 +116,16 @@ namespace Idojaras
             }
             if(i  > -1 )varosok.RemoveAt(i);
             Feltolt(varosok);
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            using StreamWriter sw = new(
+                path: @"..\..\..\src\cities.txt",
+                append: false,
+                encoding: UTF8Encoding.UTF8);
+            foreach (Varos v in varosok) sw.WriteLine($"{v._nev};{v._homerseklet.ToString()};{v._paratartalom.ToString()};{v._szelsebesseg.ToString()}");
+            this.Close();
         }
     }
 }
