@@ -69,12 +69,15 @@ namespace Idojaras
 
         private void Hozzaad(object sender, RoutedEventArgs e)
         {
-            ListBoxItem item = new();
-            item.Content = Telepules.Text;
-            bool ad = true;
-            foreach (var v in varosok) if (v._nev == item.Content.ToString()) ad = false;
-            if (ad) Varosok.Items.Add(item);
-            Telepules.Text = string.Empty;
+            if (Telepules.Text != string.Empty)
+            {
+                ListBoxItem item = new();
+                item.Content = Telepules.Text;
+                bool ad = true;
+                foreach (var v in varosok) if (v._nev == item.Content.ToString()) ad = false;
+                if (ad) Varosok.Items.Add(item);
+                Telepules.Text = string.Empty;
+            }
         }
 
         private void Feltolt(List<Varos> varosok)
@@ -88,18 +91,25 @@ namespace Idojaras
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Kitoltes(object sender, RoutedEventArgs e)
         {
-            varosok.Add(new(telepules.Text, int.Parse(H.Text), int.Parse(P.Text), int.Parse(SZ.Text)));
-            P.Visibility = Visibility.Hidden;
-            H.Visibility = Visibility.Hidden;
-            SZ.Visibility = Visibility.Hidden;
-            PL.Visibility = Visibility.Hidden;
-            HL.Visibility = Visibility.Hidden;
-            SZL.Visibility = Visibility.Hidden;
-            telepules.Visibility = Visibility.Hidden;
-            Done.Visibility = Visibility.Hidden;
-            Feltolt(varosok);
+            if (H.Text != string.Empty && P.Text != string.Empty && SZ.Text != string.Empty)
+            { 
+                varosok.Add(new(telepules.Text, int.Parse(H.Text), int.Parse(P.Text), int.Parse(SZ.Text)));
+                P.Visibility = Visibility.Hidden;
+                H.Visibility = Visibility.Hidden;
+                SZ.Visibility = Visibility.Hidden;
+                PL.Visibility = Visibility.Hidden;
+                HL.Visibility = Visibility.Hidden;
+                SZL.Visibility = Visibility.Hidden;
+                telepules.Visibility = Visibility.Hidden;
+                Done.Visibility = Visibility.Hidden;
+                Feltolt(varosok);
+            }
+            else
+            {
+                MessageBox.Show("Töltse ki az összes adatot!", "Figyelem!", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -124,7 +134,11 @@ namespace Idojaras
                 path: @"..\..\..\src\cities.txt",
                 append: false,
                 encoding: UTF8Encoding.UTF8);
-            foreach (Varos v in varosok) sw.WriteLine($"{v._nev};{v._homerseklet.ToString()};{v._paratartalom.ToString()};{v._szelsebesseg.ToString()}");
+            foreach (var v in varosok) {
+                if (v != varosok.Last()) sw.WriteLine($"{v._nev};{v._homerseklet.ToString()};{v._paratartalom.ToString()};{v._szelsebesseg.ToString()}");
+                else sw.Write($"{v._nev};{v._homerseklet.ToString()};{v._paratartalom.ToString()};{v._szelsebesseg.ToString()}");
+            };
+            sw.Close();
             this.Close();
         }
     }

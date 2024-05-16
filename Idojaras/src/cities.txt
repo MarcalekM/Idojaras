@@ -1,6 +1,4 @@
-﻿Miskolc;15;45;39
-Budapest;20;42;32
-Székesfehérvár;12;36;37
+﻿Cairo;35,5;10;20,3
 Stockholm;15,2;75;5,1
 Tokyo;28,1;50;10,2
 New York;22;60;15
